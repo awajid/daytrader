@@ -48,11 +48,13 @@
             <version>${version}</version>
             <type>ejb</type>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.apache.geronimo.daytrader</groupId>
             <artifactId>daytrader-streamer</artifactId>
             <version>${version}</version>
         </dependency>
+        -->
         <dependency>
             <groupId>org.apache.geronimo.daytrader</groupId>
             <artifactId>daytrader-wsappclient</artifactId>
@@ -81,12 +83,14 @@
                             <artifactId>daytrader-ejb</artifactId>
                             <bundleFileName>dt-ejb.jar</bundleFileName>
                         </ejbModule>
+                        <!--
                         <javaModule>
                             <groupId>org.apache.geronimo.daytrader</groupId>
                             <artifactId>daytrader-streamer</artifactId>
                             <bundleFileName>streamer.jar</bundleFileName>
                             <includeInApplicationXml>true</includeInApplicationXml>
                         </javaModule>
+                        -->
                         <javaModule>
                             <groupId>org.apache.geronimo.daytrader</groupId>
                             <artifactId>daytrader-wsappclient</artifactId>

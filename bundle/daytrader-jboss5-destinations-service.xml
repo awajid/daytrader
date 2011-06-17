@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+    <mbean code="org.jboss.jms.server.destination.TopicService"
+           name="jboss.messaging.destination:service=Topic,name=jms/TradeStreamerTopic"
+           xmbean-dd="xmdesc/Topic-xmbean.xml">
+        <depends optional-attribute-name="ServerPeer">jboss.messaging:service=ServerPeer</depends>
+        <depends>jboss.messaging:service=PostOffice</depends>
+        <attribute name="JNDIName">TradeStreamerTopic</attribute>
+    </mbean>
+    <mbean code="org.jboss.jms.server.destination.QueueService"
+           name="jboss.messaging.destination:service=Queue,name=jms/TradeBrokerQueue"
+           xmbean-dd="xmdesc/Queue-xmbean.xml">
+        <depends optional-attribute-name="ServerPeer">jboss.messaging:service=ServerPeer</depends>
+        <depends>jboss.messaging:service=PostOffice</depends>
+        <attribute name="JNDIName">TradeBrokerQueue</attribute>
+    </mbean>
+</server>
+

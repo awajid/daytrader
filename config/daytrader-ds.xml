@@ -13,7 +13,7 @@
 <datasources>
   <local-tx-datasource>
     <jndi-name>jdbc/TradeDataSource</jndi-name>
-    <connection-url>jdbc:db2:yourdatabase</connection-url>
+    <connection-url>jdbc:db2://wks8201837.bcbsfl.com:50000/TRADEDB</connection-url>
     
     <!-- DB2 Universal Driver Note connection URL is in form of
          jdbc:db2://host:port:dbname
@@ -31,8 +31,8 @@
     -->  
     
     <driver-class>COM.ibm.db2.jdbc.app.DB2Driver</driver-class>
-    <user-name>x</user-name>
-    <password>y</password>
+    <user-name>wsrrd</user-name>
+    <password>DYbyDX12</password>
     <min-pool-size>0</min-pool-size>
     
     <!-- New org.jboss.resource.adapter.jdbc.vendor.DB2ExceptionSorter

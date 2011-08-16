@@ -74,11 +74,11 @@
             <artifactId>daytrader-web</artifactId>
             <version>${version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.geronimo.daytrader.modules</groupId>
-            <artifactId>streamer</artifactId>
-            <version>${version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.geronimo.daytrader.modules</groupId>-->
+<!--            <artifactId>streamer</artifactId>-->
+<!--            <version>${version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.geronimo.daytrader.modules</groupId>
             <artifactId>wsappclient</artifactId>
@@ -138,12 +138,12 @@
                             <contextRoot>/daytrader</contextRoot>
                             <bundleFileName>web.war</bundleFileName>
                         </webModule>
-                        <javaModule>
-                            <groupId>org.apache.geronimo.daytrader.modules</groupId>
-                            <artifactId>streamer</artifactId>
-                            <bundleFileName>streamer.jar</bundleFileName>
-                            <includeInApplicationXml>true</includeInApplicationXml>
-                        </javaModule>
+<!--                        <javaModule>-->
+<!--                            <groupId>org.apache.geronimo.daytrader.modules</groupId>-->
+<!--                            <artifactId>streamer</artifactId>-->
+<!--                            <bundleFileName>streamer.jar</bundleFileName>-->
+<!--                            <includeInApplicationXml>true</includeInApplicationXml>-->
+<!--                        </javaModule>-->
                         <javaModule>
                             <groupId>org.apache.geronimo.daytrader.modules</groupId>
                             <artifactId>wsappclient</artifactId>

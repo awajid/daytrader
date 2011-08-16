@@ -164,7 +164,8 @@
                         </manifestEntries>
                     </archive>
                     <resources>
-                        <resource implementation="org.apache.maven.model.Resource">
+<!--                        <resource implementation="org.apache.maven.model.Resource">-->
+                        <resource>
                             <filtering>true</filtering>
                             <directory>
                                 ${basedir}/src/main/webapp/WEB-INF

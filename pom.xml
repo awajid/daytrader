@@ -146,7 +146,7 @@
         <!-- Installable assemblies -->
         <module>assemblies</module>
         <!-- Geronimo c-m-p built plugins -->
-        <module>plugins</module>
+<!--        <module>plugins</module>-->
         
     </modules>
 

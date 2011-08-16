@@ -2020,7 +2020,7 @@ public class TradeJEEDirect implements TradeServices, TradeDBServices {
         }
 
         try {
-            qConnFactory = (ConnectionFactory) context.lookup("java:comp/env/jms/QueueConnectionFactory");
+            qConnFactory = (ConnectionFactory) context.lookup("java:/ConnectionFactory");
         } catch (Exception e) {
             Log
                 .error("TradeDirect:init  Unable to locate QueueConnectionFactory.\n\t -- Asynchronous mode will not work correctly and Quote Price change publishing will be disabled");
@@ -2036,7 +2036,7 @@ public class TradeJEEDirect implements TradeServices, TradeDBServices {
         }
 
         try {
-            tConnFactory = (ConnectionFactory) context.lookup("java:comp/env/jms/TopicConnectionFactory");
+            tConnFactory = (ConnectionFactory) context.lookup("java:/ConnectionFactory");
         } catch (Exception e) {
             Log
                 .error("TradeDirect:init  Unable to locate TopicConnectionFactory.\n\t -- Asynchronous mode will not work correctly and Quote Price change publishing will be disabled");

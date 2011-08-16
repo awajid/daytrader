@@ -51,7 +51,7 @@ public class PingServlet2MDBQueue extends HttpServlet {
 
     private static int hitCount;
 
-    @Resource(name = "jms/QueueConnectionFactory")
+    @Resource(name = "java:/ConnectionFactory")
     private ConnectionFactory queueConnectionFactory;
 
     @Resource(name = "jms/TradeBrokerQueue")
@@ -71,7 +71,14 @@ public class PingServlet2MDBQueue extends HttpServlet {
                 + "<FONT color=\"red\"><B>Note:</B> Not intended for performance testing.</FONT>");
 
         try {
+        	if(queueConnectionFactory == null) {
+        		queueConnectionFactory = (ConnectionFactory)new InitialContext().lookup("ConnectionFactory");
+        	}
             Connection conn = queueConnectionFactory.createConnection();
+            
+            if(tradeBrokerQueue == null) {
+            	tradeBrokerQueue = (Queue)new InitialContext().lookup("java:comp/env/jms/TradeBrokerQueue");
+            }
 
             try {
                 TextMessage message = null;

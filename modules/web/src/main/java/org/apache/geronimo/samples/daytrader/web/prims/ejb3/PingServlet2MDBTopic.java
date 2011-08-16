@@ -22,6 +22,7 @@ import javax.annotation.Resource;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.MessageProducer;
+import javax.jms.Queue;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 import javax.jms.Topic;
@@ -73,7 +74,14 @@ public class PingServlet2MDBTopic extends HttpServlet {
         // we only want to look up the JMS resources once
         try {
 
+        	if(topicConnectionFactory == null) {
+        		topicConnectionFactory = (ConnectionFactory)new InitialContext().lookup("ConnectionFactory");
+        	}
             Connection conn = topicConnectionFactory.createConnection();
+
+            if(tradeStreamerTopic == null) {
+            	tradeStreamerTopic = (Topic)new InitialContext().lookup("java:comp/env/jms/TradeStreamerTopic");
+            }
 
             try {
                 TextMessage message = null;

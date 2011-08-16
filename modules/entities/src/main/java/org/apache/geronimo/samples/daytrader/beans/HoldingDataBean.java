@@ -67,7 +67,7 @@ public class HoldingDataBean implements Serializable {
     @Column(name = "QUANTITY", nullable = false)
     private double quantity;                /* quantity */
     
-    @Column(name = "PURCHASEPRICE")
+    @Column(name = "PURCHASEPRICE", columnDefinition = "decimal")
     private BigDecimal purchasePrice;       /* purchasePrice */
     
     @Column(name = "PURCHASEDATE")

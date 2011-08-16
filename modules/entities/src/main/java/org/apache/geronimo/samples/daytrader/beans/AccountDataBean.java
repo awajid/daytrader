@@ -85,10 +85,10 @@ public class AccountDataBean implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;              /* creationDate */
     
-    @Column(name = "BALANCE")
+    @Column(name = "BALANCE", columnDefinition = "decimal")
     private BigDecimal balance;             /* balance */
     
-    @Column(name = "OPENBALANCE")
+    @Column(name = "OPENBALANCE", columnDefinition = "decimal")
     private BigDecimal openBalance;         /* open balance */
     
     // change to eager so that pingservlet2session2cmrone2many works

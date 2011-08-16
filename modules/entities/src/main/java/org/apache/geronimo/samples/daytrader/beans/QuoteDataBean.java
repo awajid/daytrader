@@ -64,16 +64,16 @@ public class QuoteDataBean implements Serializable {
     @Column(name = "VOLUME", nullable = false)
     private double volume;          /* volume */
     
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", columnDefinition = "decimal")
     private BigDecimal price;       /* price */
     
-    @Column(name = "OPEN1")
+    @Column(name = "OPEN1", columnDefinition = "decimal")
     private BigDecimal open1;       /* open1 price */
     
-    @Column(name = "LOW")
+    @Column(name = "LOW", columnDefinition = "decimal")
     private BigDecimal low;         /* low price */
     
-    @Column(name = "HIGH")
+    @Column(name = "HIGH", columnDefinition = "decimal")
     private BigDecimal high;        /* high price */
     
     @Column(name = "CHANGE1", nullable = false)

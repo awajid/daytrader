@@ -90,10 +90,10 @@ public class OrderDataBean implements Serializable
     @Column(name = "QUANTITY", nullable = false)
     private double quantity;			/* quantity */
     
-    @Column(name = "PRICE")
+    @Column(name = "PRICE", columnDefinition = "decimal")
     private BigDecimal price;				/* price */
     
-    @Column(name = "ORDERFEE")
+    @Column(name = "ORDERFEE", columnDefinition = "decimal")
     private BigDecimal orderFee;			/* price */
     
     @ManyToOne(fetch=FetchType.LAZY)

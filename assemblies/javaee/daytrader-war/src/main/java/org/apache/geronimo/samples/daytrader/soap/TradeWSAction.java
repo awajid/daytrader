@@ -19,6 +19,8 @@ package org.apache.geronimo.samples.daytrader.soap;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
 
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import org.apache.geronimo.samples.daytrader.client.ws.AccountDataBean;
@@ -36,6 +38,7 @@ import org.apache.geronimo.samples.daytrader.core.TradeAction;
  * of collections.  Instead this class uses typed arrays.
  */
 @WebService(wsdlLocation = "/WEB-INF/wsdl/TradeServices.wsdl", portName = "TradeWSServices", targetNamespace = "http://daytrader.samples.geronimo.apache.org")
+//@WebService
 public class TradeWSAction implements TradeWSServices {
 	TradeAction trade;
 	
@@ -50,8 +53,13 @@ public class TradeWSAction implements TradeWSServices {
             throw new RemoteException("", e);
         }
 	}
-	
-	public OrderDataBean buy(String userID, String symbol, double quantity, int orderProcessingMode) throws RemoteException {
+
+	@WebMethod
+	public OrderDataBean buy(
+			@WebParam(name = "userID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") String userID, 
+			@WebParam(name = "symbol", targetNamespace = "http://daytrader.samples.geronimo.apache.org") String symbol, 
+			@WebParam(name = "quantity", targetNamespace = "http://daytrader.samples.geronimo.apache.org") double quantity, 
+			@WebParam(name = "orderProcessingMode", targetNamespace = "http://daytrader.samples.geronimo.apache.org") int orderProcessingMode) throws RemoteException {
 		try {
             return Convert.convertOrderDataBean(trade.buy(userID, symbol, quantity, orderProcessingMode));
         } catch (Exception e) {
@@ -59,7 +67,11 @@ public class TradeWSAction implements TradeWSServices {
         }
 	}
 	
-	public OrderDataBean sell(String userID, Integer holdingID, int orderProcessingMode) throws RemoteException {
+	@WebMethod
+	public OrderDataBean sell(
+			@WebParam(name = "userID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") String userID, 
+			@WebParam(name = "holdingID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") Integer holdingID, 
+			@WebParam(name = "orderProcessingMode", targetNamespace = "http://daytrader.samples.geronimo.apache.org") int orderProcessingMode) throws RemoteException {
 		try {
             return Convert.convertOrderDataBean(trade.sell(userID, holdingID, orderProcessingMode));
         } catch (Exception e) {
@@ -67,19 +79,31 @@ public class TradeWSAction implements TradeWSServices {
         }
 	}
 
-	public void queueOrder(Integer orderID, boolean twoPhase) throws RemoteException {
+	@WebMethod
+	public void queueOrder(
+			@WebParam(name = "orderID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") Integer orderID, 
+			@WebParam(name = "twoPhase", targetNamespace = "http://daytrader.samples.geronimo.apache.org") boolean twoPhase) throws RemoteException {
 		trade.queueOrder(orderID, twoPhase);
 	}
 	
-	public OrderDataBean completeOrder(Integer orderID, boolean twoPhase) throws RemoteException {
+	@WebMethod
+	public OrderDataBean completeOrder(
+			@WebParam(name = "orderID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") Integer orderID, 
+			@WebParam(name = "twoPhase", targetNamespace = "http://daytrader.samples.geronimo.apache.org") boolean twoPhase) throws RemoteException {
 		return Convert.convertOrderDataBean(trade.completeOrder(orderID, twoPhase));
 	}
 
-	public void cancelOrder(Integer orderID, boolean twoPhase) throws RemoteException {
+	@WebMethod
+	public void cancelOrder(
+			@WebParam(name = "orderID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") Integer orderID, 
+			@WebParam(name = "twoPhase", targetNamespace = "http://daytrader.samples.geronimo.apache.org") boolean twoPhase) throws RemoteException {
 		trade.cancelOrder(orderID, twoPhase);
 	}
 	
-	public void orderCompleted(String userID, Integer orderID) throws RemoteException {
+	@WebMethod
+	public void orderCompleted(
+			@WebParam(name = "userID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") String userID, 
+			@WebParam(name = "orderID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") Integer orderID) throws RemoteException {
 		try {
             trade.orderCompleted(userID, orderID);
         } catch (Exception e) {
@@ -87,7 +111,9 @@ public class TradeWSAction implements TradeWSServices {
         }
 	}
 	
-	public OrderDataBean[] getOrders(String userID) throws RemoteException {
+	@WebMethod
+	public OrderDataBean[] getOrders(
+			@WebParam(name = "userID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") String userID) throws RemoteException {
         try {
             return Convert.convertOrderDataBeanCollection(trade.getOrders(userID));
         } catch (Exception e) {
@@ -95,7 +121,9 @@ public class TradeWSAction implements TradeWSServices {
         }
 	}
 	
-	public OrderDataBean[] getClosedOrders(String userID) throws RemoteException {
+	@WebMethod
+	public OrderDataBean[] getClosedOrders(
+			@WebParam(name = "userID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") String userID) throws RemoteException {
         try {
             return Convert.convertOrderDataBeanCollection(trade.getClosedOrders(userID));
         } catch (Exception e) {
@@ -103,7 +131,11 @@ public class TradeWSAction implements TradeWSServices {
         }
 	}
 	
-	public QuoteDataBean createQuote(String symbol, String companyName, BigDecimal price) throws RemoteException {
+	@WebMethod
+	public QuoteDataBean createQuote(
+			@WebParam(name = "symbol", targetNamespace = "http://daytrader.samples.geronimo.apache.org") String symbol, 
+			@WebParam(name = "companyName", targetNamespace = "http://daytrader.samples.geronimo.apache.org") String companyName, 
+			@WebParam(name = "price", targetNamespace = "http://daytrader.samples.geronimo.apache.org") BigDecimal price) throws RemoteException {
 		try {
             return Convert.convertQuoteDataBean(trade.createQuote(symbol, companyName, price));
         } catch (Exception e) {
@@ -111,14 +143,16 @@ public class TradeWSAction implements TradeWSServices {
         }
 	}
 	
-	public QuoteDataBean getQuote(String symbol) throws RemoteException {
+	@WebMethod
+	public QuoteDataBean getQuote(@WebParam(name = "symbol", targetNamespace = "http://daytrader.samples.geronimo.apache.org") String symbol) throws RemoteException {
 		try {
             return Convert.convertQuoteDataBean(trade.getQuote(symbol));
         } catch (Exception e) {
             throw new RemoteException("", e);
         }
 	}
-	
+
+	@WebMethod
 	public QuoteDataBean[] getAllQuotes() throws RemoteException {
 		try {
             return Convert.convertQuoteDataBeanCollection(trade.getAllQuotes());
@@ -159,7 +193,8 @@ public class TradeWSAction implements TradeWSServices {
         }
 	}
 	
-	public AccountProfileDataBean getAccountProfileData(String userID) throws RemoteException {
+	@WebMethod
+	public AccountProfileDataBean getAccountProfileData(@WebParam(name = "userID", targetNamespace = "http://daytrader.samples.geronimo.apache.org") String userID) throws RemoteException {
 		try {
             return Convert.convertAccountProfileDataBean(trade.getAccountProfileData(userID));
         } catch (Exception e) {

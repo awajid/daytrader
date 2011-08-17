@@ -41,7 +41,7 @@ public class PingServlet2TwoPhase extends HttpServlet {
 
     private static int hitCount;
 
-    @EJB
+    @EJB(name = "java:comp/env/ejb/TradeSLSBBean")
     private TradeSLSBRemote tradeSLSBRemote;
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -63,7 +63,7 @@ public class PingServlet2TwoPhase extends HttpServlet {
 
             try {
             	if(tradeSLSBRemote == null) {
-            		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:/ejb/Trade");
+            		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:comp/env/ejb/TradeSLSBBean");
             	}
                 int iter = TradeConfig.getPrimIterations();
                 for (int ii = 0; ii < iter; ii++) {

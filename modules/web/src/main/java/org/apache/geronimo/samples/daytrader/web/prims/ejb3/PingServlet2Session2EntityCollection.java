@@ -65,17 +65,11 @@ public class PingServlet2Session2EntityCollection extends HttpServlet {
         output.append("<html><head><title>PingServlet2Session2EntityCollection</title></head>" + "<body><HR><FONT size=\"+2\" color=\"#000066\">PingServlet2Session2EntityCollection<BR></FONT>" + "<FONT size=\"-1\" color=\"#000066\">"
                 + "PingServlet2Session2EntityCollection tests the common path of a Servlet calling a Session EJB " + "which in turn calls a finder on an Entity EJB returning a collection of Entity EJBs.<BR>");
 
-        if(tradeSLSBRemote == null) {
-        	try {
-				tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:/ejb/Trade");
-			} catch (NamingException e) {
-			}
-        }
         try {
 
             try {
             	if(tradeSLSBRemote == null) {
-            		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:/ejb/Trade");
+            		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:comp/env/ejb/TradeSLSBBean");
             	}
                 int iter = TradeConfig.getPrimIterations();
                 for (int ii = 0; ii < iter; ii++) {

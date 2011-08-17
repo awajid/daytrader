@@ -67,7 +67,7 @@ public class PingServlet2Session2JDBC extends HttpServlet {
 
             try {
             	if(directSLSBRemote == null) {
-            		directSLSBRemote = (DirectSLSBRemote)new InitialContext().lookup("java:/ejb/Direct");
+            		directSLSBRemote = (DirectSLSBRemote)new InitialContext().lookup("java:comp/env/ejb/DirectSLSBBean");
             	}
                 int iter = TradeConfig.getPrimIterations();
                 for (int ii = 0; ii < iter; ii++) {

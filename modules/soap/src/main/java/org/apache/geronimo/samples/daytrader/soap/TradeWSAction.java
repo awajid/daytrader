@@ -19,7 +19,6 @@ package org.apache.geronimo.samples.daytrader.soap;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
 
-import org.apache.geronimo.samples.daytrader.core.TradeAction;
 import org.apache.geronimo.samples.daytrader.client.ws.AccountDataBean;
 import org.apache.geronimo.samples.daytrader.client.ws.AccountProfileDataBean;
 import org.apache.geronimo.samples.daytrader.client.ws.HoldingDataBean;
@@ -28,6 +27,7 @@ import org.apache.geronimo.samples.daytrader.client.ws.OrderDataBean;
 import org.apache.geronimo.samples.daytrader.client.ws.QuoteDataBean;
 import org.apache.geronimo.samples.daytrader.client.ws.RunStatsDataBean;
 import org.apache.geronimo.samples.daytrader.client.ws.TradeWSServices;
+import org.apache.geronimo.samples.daytrader.core.TradeAction;
 
 /** 
  * This is a TradeAction wrapper to handle web service handling
@@ -202,6 +202,6 @@ public class TradeWSAction implements TradeWSServices {
         } catch (Exception e) {
             throw new RemoteException("", e);
         }                
-	}    
-    
+	}
+
 }

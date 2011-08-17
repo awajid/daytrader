@@ -62,7 +62,7 @@ public class PingServlet2Session extends HttpServlet {
 
             try {
             	if(tradeSLSBRemote == null) {
-            		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:/ejb/Trade");
+            		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:comp/env/ejb/TradeSLSBBean");
             	}
                 // create three random numbers
                 double rnd1 = Math.random() * 1000000;

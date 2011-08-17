@@ -69,6 +69,9 @@ public class PingServlet2Session2JDBCCollection extends HttpServlet {
         try {
 
             try {
+            	if(directSLSBRemote == null) {
+            		directSLSBRemote = (DirectSLSBRemote)new InitialContext().lookup("java:comp/env/ejb/DirectSLSBBean");
+            	}
                 int iter = TradeConfig.getPrimIterations();
                 for (int ii = 0; ii < iter; ii++) {
                     userID = TradeConfig.rndUserID();

@@ -62,6 +62,9 @@ public class PingServlet2TwoPhase extends HttpServlet {
         try {
 
             try {
+            	if(tradeSLSBRemote == null) {
+            		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:/ejb/Trade");
+            	}
                 int iter = TradeConfig.getPrimIterations();
                 for (int ii = 0; ii < iter; ii++) {
                     symbol = TradeConfig.rndSymbol();

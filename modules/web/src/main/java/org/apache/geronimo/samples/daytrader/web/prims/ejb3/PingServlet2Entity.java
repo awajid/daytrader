@@ -65,6 +65,10 @@ public class PingServlet2Entity extends HttpServlet {
         try {
             // generate random symbol
             try {
+            	if(em == null) {
+            		em = (EntityManager)new InitialContext().lookup("java:comp/env/entityManager");
+            	}
+            	
                 int iter = TradeConfig.getPrimIterations();
                 for (int ii = 0; ii < iter; ii++) {
                     // get a random symbol to look up and get the key to that

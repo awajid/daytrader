@@ -59,6 +59,9 @@ public class PingServlet2Session2CMROne2One extends HttpServlet {
                 + " to get the profile for a user using an EJB 3.0 CMR one to one relationship");
         try {
 
+        	if(tradeSLSBRemote == null) {
+        		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:comp/env/ejb/TradeSLSBBean");
+        	}
             AccountProfileDataBean accountProfileData = null;
             int iter = TradeConfig.getPrimIterations();
             for (int ii = 0; ii < iter; ii++) {

@@ -94,7 +94,7 @@ public class TradeConfig {
 	public static boolean JDBCDriverNeedsGlobalTransaction = false;
 
 	/* Trade Config Miscellaneous itmes */
-	public static String DATASOURCE = "java:comp/env/jdbc/TradeDataSource";
+	public static String DATASOURCE = "java:/jdbc/TradeDataSource";
 	public static int KEYBLOCKSIZE = 1000;
 	public static int QUOTES_PER_PAGE = 10;
 	public static boolean RND_USER = true;

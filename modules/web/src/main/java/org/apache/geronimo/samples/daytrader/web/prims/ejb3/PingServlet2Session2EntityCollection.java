@@ -19,6 +19,7 @@ package org.apache.geronimo.samples.daytrader.web.prims.ejb3;
 import java.io.*;
 
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.util.Collection;
@@ -68,7 +69,7 @@ public class PingServlet2Session2EntityCollection extends HttpServlet {
 
             try {
             	if(tradeSLSBRemote == null) {
-            		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:/ejb/Trade");
+            		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:comp/env/ejb/TradeSLSBBean");
             	}
                 int iter = TradeConfig.getPrimIterations();
                 for (int ii = 0; ii < iter; ii++) {

@@ -38,7 +38,7 @@
          <res-ref-name>jms/TopicConnectionFactory</res-ref-name>
          <jndi-name>ConnectionFactory</jndi-name>
       </resource-ref>
-        
+      
       <message-destination-ref>
          <message-destination-ref-name>jms/TradeBrokerQueue</message-destination-ref-name>
          <jndi-name>TradeBrokerQueue</jndi-name>

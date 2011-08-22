@@ -53,22 +53,22 @@
             <artifactId>daytrader-core</artifactId>
             <version>${version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.geronimo.daytrader.modules</groupId>
-            <artifactId>daytrader-entities</artifactId>
-            <version>${version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.geronimo.daytrader.modules</groupId>-->
+<!--            <artifactId>daytrader-entities</artifactId>-->
+<!--            <version>${version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.geronimo.daytrader.modules</groupId>
             <artifactId>daytrader-ejb3</artifactId>
             <version>${version}</version>
             <type>ejb</type>
         </dependency>
-        <dependency>
-            <groupId>org.apache.geronimo.daytrader.modules</groupId>
-            <artifactId>daytrader-soap</artifactId>
-            <version>${version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.geronimo.daytrader.modules</groupId>-->
+<!--            <artifactId>daytrader-soap</artifactId>-->
+<!--            <version>${version}</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.apache.geronimo.daytrader.modules</groupId>
             <artifactId>daytrader-web</artifactId>
@@ -109,12 +109,12 @@
                             <bundleFileName>core.jar</bundleFileName>
                             <includeInApplicationXml>false</includeInApplicationXml>
                         </javaModule>
-                        <javaModule>
-                            <groupId>org.apache.geronimo.daytrader.modules</groupId>
-                            <artifactId>daytrader-entities</artifactId>
-                            <bundleFileName>entities.jar</bundleFileName>
-                            <includeInApplicationXml>false</includeInApplicationXml>
-                        </javaModule>
+<!--                        <javaModule>-->
+<!--                            <groupId>org.apache.geronimo.daytrader.modules</groupId>-->
+<!--                            <artifactId>daytrader-entities</artifactId>-->
+<!--                            <bundleFileName>entities.jar</bundleFileName>-->
+<!--                            <includeInApplicationXml>false</includeInApplicationXml>-->
+<!--                        </javaModule>-->
                         <ejbModule>
                             <groupId>org.apache.geronimo.daytrader.modules</groupId>
                             <artifactId>daytrader-ejb3</artifactId>
@@ -126,12 +126,12 @@
                             <bundleFileName>web.jar</bundleFileName>
                             <includeInApplicationXml>false</includeInApplicationXml>
                         </javaModule>
-                        <javaModule>
-                            <groupId>org.apache.geronimo.daytrader.modules</groupId>
-                            <artifactId>daytrader-soap</artifactId>
-                            <bundleFileName>soap.jar</bundleFileName>
-                            <includeInApplicationXml>false</includeInApplicationXml>
-                        </javaModule>
+<!--                        <javaModule>-->
+<!--                            <groupId>org.apache.geronimo.daytrader.modules</groupId>-->
+<!--                            <artifactId>daytrader-soap</artifactId>-->
+<!--                            <bundleFileName>soap.jar</bundleFileName>-->
+<!--                            <includeInApplicationXml>false</includeInApplicationXml>-->
+<!--                        </javaModule>-->
                         <webModule>
                             <groupId>org.apache.geronimo.daytrader.assemblies.javaee</groupId>
                             <artifactId>daytrader-war</artifactId>

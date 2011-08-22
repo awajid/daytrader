@@ -51,6 +51,11 @@
             </message-destination-ref>
                 
       </session>       
+      <session>
+         <ejb-name>DirectSLSBBean</ejb-name>
+         <jndi-name>ejb/Direct</jndi-name>
+            
+      </session>       
   
       <message-driven>
          <ejb-name>DTStreamer3MDB</ejb-name> 

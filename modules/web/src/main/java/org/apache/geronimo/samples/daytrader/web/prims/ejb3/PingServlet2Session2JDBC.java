@@ -24,6 +24,7 @@ import javax.rmi.PortableRemoteObject;
 import javax.ejb.EJB;
 
 import org.apache.geronimo.samples.daytrader.ejb3.DirectSLSBRemote;
+import org.apache.geronimo.samples.daytrader.ejb3.TradeSLSBRemote;
 import org.apache.geronimo.samples.daytrader.beans.QuoteDataBean;
 import org.apache.geronimo.samples.daytrader.util.Log;
 import org.apache.geronimo.samples.daytrader.util.TradeConfig;
@@ -65,6 +66,9 @@ public class PingServlet2Session2JDBC extends HttpServlet {
         try {
 
             try {
+            	if(directSLSBRemote == null) {
+            		directSLSBRemote = (DirectSLSBRemote)new InitialContext().lookup("java:comp/env/ejb/DirectSLSBBean");
+            	}
                 int iter = TradeConfig.getPrimIterations();
                 for (int ii = 0; ii < iter; ii++) {
                     symbol = TradeConfig.rndSymbol();

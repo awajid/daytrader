@@ -44,7 +44,7 @@ public class PingServlet2Entity extends HttpServlet {
 
     private static int hitCount;
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "daytrader")
     private EntityManager em;
 
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -65,6 +65,10 @@ public class PingServlet2Entity extends HttpServlet {
         try {
             // generate random symbol
             try {
+            	if(em == null) {
+            		System.out.println("EntityManager is null.");
+            	}
+            	
                 int iter = TradeConfig.getPrimIterations();
                 for (int ii = 0; ii < iter; ii++) {
                     // get a random symbol to look up and get the key to that

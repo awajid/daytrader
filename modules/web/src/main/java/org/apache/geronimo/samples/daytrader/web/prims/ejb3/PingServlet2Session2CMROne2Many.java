@@ -61,6 +61,9 @@ public class PingServlet2Session2CMROne2Many extends HttpServlet {
                 + " to get the orders for a user using an EJB 3.0 Entity CMR one to many relationship");
         try {
 
+        	if(tradeSLSBRemote == null) {
+        		tradeSLSBRemote = (TradeSLSBRemote)new InitialContext().lookup("java:comp/env/ejb/TradeSLSBBean");
+        	}
             Collection orderDataBeans = null;
             int iter = TradeConfig.getPrimIterations();
             for (int ii = 0; ii < iter; ii++) {
